@@ -47,7 +47,7 @@ Del resultat podem extraure els diferents modes de funcionament:
 
 Per saber si la nostra interfície és compatible necessitem informació de la targeta de xarxa que fem servir. Amb la següent comanda obtenim informació detallada dels dispositius del sistema, en aquesta informació trobem la targeta de xarxa:
 ```console
-lscpi
+lspci
 ```
 
 > 0e:00.0 Network controller: Qualcomm Atheros AR9462 Wireless Network Adapter (rev 01)
@@ -57,6 +57,20 @@ Dins la seva [web de compatibilitat](https://www.aircrack-ng.org/doku.php?id=com
 A més, hem trobat abans que la interfície suporta el mode *monitor*, mode que necessitarem per l'aircrack-ng.
 
 Com he fet servir l'aircrack-ng altres vegades sé amb seguretat que la meva interfície és compatible.
+
+Fem una prova amb aircrak-ng per monitorar:
+
+```
+sudo airmon-ng start wlp14s0
+```
+![alt_text](images/image02.png "Estructura del projecte IEEE 802")
+
+```
+sudo airmon-ng check kill
+sudo airodump-ng wlp14s0mon
+```
+
+![alt_text](images/image03.png "Estructura del projecte IEEE 802")
 
 ## Llista les targetes de xarxa (ip link) - explica què hi veus.
 
@@ -284,6 +298,20 @@ wlp14s0
 ```
 
 Amb aquesta comanda obtenim els noms "base" dels directoris, sense tota la ruta. En el directori */sys/class/net/* tenim un directori per cada interfície de xarxa.
+
+També ho podem fer amb les tipíques consultes per extreure informació de les interfícies i tractar el text amb la següents comandes:
+
+```console
+ifconfig -a | sed 's/[ \t].*//;/^$/d'
+```
+
+```console
+ifconfig | cut -c 1-8 | sort | uniq -u
+```
+
+```console
+ip -o link show | awk -F': ' '{print $2}'
+```
 
 ## Desactiva i activa una teva targeta de xarxa
 
