@@ -10,6 +10,13 @@
 
 ## Executa una instrucció i envia el resultat d'aquesta a una altre instrucció.
 
+Llistar els fitxers i directoris i els ordenem aleatòriament.
+
+```console
+ls -1 | sort -R
+```
+
+
 ## Configura el router per tal que faci servir un passsword tipus WEP.
 
 ## Configura el router per tal que faci servir un password tipus WPA.

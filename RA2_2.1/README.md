@@ -302,11 +302,11 @@ Amb aquesta comanda obtenim els noms "base" dels directoris, sense tota la ruta.
 També ho podem fer amb les tipíques consultes per extreure informació de les interfícies i tractar el text amb la següents comandes:
 
 ```console
-ifconfig -a | sed 's/[ \t].*//;/^$/d'
+ifconfig -a | sed 's/[ \t].*//;/^$/d' | cut -d ":" -f 1
 ```
 
 ```console
-ifconfig | cut -c 1-8 | sort | uniq -u
+ifconfig | cut -c 1-8 | sort | uniq -u | cut -d ":" -f 1
 ```
 
 ```console
