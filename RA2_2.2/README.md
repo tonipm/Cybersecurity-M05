@@ -35,6 +35,13 @@ Llistar els fitxers i directoris i els ordenem aleatòriament.
 ls -1 | sort -R
 ```
 
+Per l'anterior pràctica també vam fer alguns exemples com el següent, que llista les interfícies de xarxa i es filtra la sortida amb *awk*:
+
+```
+ip -o link show | awk -F': ' '{print $2}'
+```
+
+
 ## Configura el router per tal que faci servir un passsword tipus WEP.
 
 El sistema de xifrat WEP (Wired Equivalent Privacy) ja està obsolet perquè és fàcil de desxifrar. Per tant, aquest router no es pot configurar per fer servir aquest tipus d'encriptació. Dels xifrats que es demanen en aquesta pràctica, és el més dèbil.
