@@ -63,14 +63,14 @@ Fem una prova amb aircrak-ng per monitorar:
 ```
 sudo airmon-ng start wlp14s0
 ```
-![alt_text](images/image02.png "Estructura del projecte IEEE 802")
+![alt_text](images/image02.png "airmon-ng start wlp14s0")
 
 ```
 sudo airmon-ng check kill
 sudo airodump-ng wlp14s0mon
 ```
 
-![alt_text](images/image03.png "Estructura del projecte IEEE 802")
+![alt_text](images/image03.png "airodump-ng wlp14s0mon")
 
 ## Llista les targetes de xarxa (ip link) - explica què hi veus.
 
