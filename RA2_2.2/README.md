@@ -1,3 +1,4 @@
+<!--
 ---
 title: "Tècniques d'encriptació de les xarxes sense fils"
 author: "Toni Peraira"
@@ -8,8 +9,6 @@ header-right: '\headerlogo'
 header-includes:
 - '`\newcommand{\headerlogo}{\raisebox{0pt}[0pt]{\includegraphics[width=3cm]{../institut_montilivi.png}}}`{=latex}'
 ---
-
-<!--
 pandoc README.md -o Toni_Peraira_RA2_2.2.pdf --from markdown --template eisvogel --listings --pdf-engine=xelatex
 -->
 
