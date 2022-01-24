@@ -5,7 +5,7 @@ import QRCode from "qrcode-svg";
  * @param {String} filename Name of the file with the QR code.
  * @param {String} content QR content.
  */
-const generateQR = async (filename, content) => {
+const generateQR = async (filename = "qr", content = " ") => {
     try {
         // QR code options.
         let qrcode = new QRCode({

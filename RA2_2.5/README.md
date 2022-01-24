@@ -65,14 +65,20 @@ l2ping
 https://www.xataka.com/basics/nfc-android-que-como-activarlo-se-puede-usar
 https://es.wikipedia.org/wiki/Comunicación_de_campo_cercano
 
-Per mí el seu ús més freqüent és el de fer-ho servir pel DNI electrònic.
+En el meu cas personal, únicament he fet servir NFC per fer ús del meu DNI electrònic. Es pot fer servir un mòbil amb funcionalitat NFC per aproximar-lo al DNI i poder signar un certificat digital amb la nostra clau única, si tenim el mòbil connectat amb USB a un PC.
 
-Pago con el teléfono móvil. Identificación. Automatización de acciones
+Amb el certificat signat podem fer les gestions burocràtiques pertinents. De no existir això i amb els sistemes públics totalment col·lapsats, mai hauria pogut fer totes les gestions que em demanaven al néixer la meva filla.
+
+Per tant, un dels seus usos més freqüents és la identificació. Habitualment és utilitzat per fer pagaments amb el mòbil, substituint les targetes de crèdit/dèbit.
 
 ## Què és QR? Quin és el seu ús més freqüent?
 
 https://es.wikipedia.org/wiki/Código_QR
 https://www.kaspersky.es/resource-center/definitions/what-is-a-qr-code-how-to-scan
+
+El cas comentat amb el DNI electrònic també es pot fer amb QR, substituint la connexió USB entre mòbil i PC per un codi QR que es genera al PC des d'una aplicació i que podem llegir amb el mòbil, que està connectat per NFC al DNI.
+
+El seu ús més freqüent és el d'assignar una adreça URL al codi QR per tal de fer una redirecció. Des de la gran pandèmia del Coronavirus, habitualment trobem codis QR en restaurants, els quals contenen una adreça des d'on consultar la seva carta.
 
 ## Genera un codi QR i afegeix-lo a l'informe.
 
@@ -86,7 +92,7 @@ import QRCode from "qrcode-svg";
  * @param {String} filename Name of the file with the QR code.
  * @param {String} content QR content.
  */
-const generateQR = async (filename, content) => {
+const generateQR = async (filename = "qr", content = " ") => {
     try {
         // QR code options.
         let qrcode = new QRCode({
