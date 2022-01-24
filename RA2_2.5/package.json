@@ -1,0 +1,20 @@
+{
+  "name": "qr-generator",
+  "version": "1.0.0",
+  "description": "Generate sample QR codes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "qr",
+    "code"
+  ],
+  "author": "Toni Peraira <toniperairam@gmail.com>",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "qrcode": "^1.5.0",
+    "qrcode-svg": "^1.1.0"
+  }
+}
