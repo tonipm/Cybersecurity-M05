@@ -1,4 +1,4 @@
----
+<!-----
 title: "RA2 - 2.5 Bluetooth, NFC i QR"
 author: "Toni Peraira"
 date: "2022-01-13"
@@ -24,46 +24,63 @@ Caracteritza altres sistemes de comunicació sense fils i les seves vulnerabilit
 
 ## Quin és el model de comunicació de bluetooth 1.0 i 2.0, quin model d'autenticació utilitza?
 
-https://ns2.elhacker.net/timofonica/facu/PFC.Seguridad.en.Bluetooth.pdf
+El model de comunicació de Bluetooth 1.0 i 2.0 és el Peer-to-Peer, xarxa entre iguals. En una comunicació P2P els dispositius es connecten i comuniquen entre si sense fer servir un servidor central on connectar-se.
 
-https://www.toengel.net/studium/mm_and_sec/bluetooth.pdf
-
-https://www.ccn-cert.cni.es/series-ccn-stic/800-guia-esquema-nacional-de-seguridad/2707-ccn-stic-837-ens-seguridad-en-bluetooth/file.html
-
-Secure Simple Pairing (SSP)
-
-Legacy Authentication
- Autenticación unidireccional.
-Mutua opcional.
- Algoritmo E1 basado en SAFER+
-
-https://www.xataka.com/basics/bluetooth-diferencias-caracteristicas-sus-clases-versiones
+Utilitza el BR/EDR legacy com a model d'autenticació basat en l'aparellament a partir d'un codi PIN numèric.
 
 ## Quin és el model de comunicació de bluetooth 3.0, quin model d'autenticació utiltiza?
 
-https://blog.330ohms.com/2017/02/02/bluetooth-clases-y-versiones-desde-v1-0-hasta-v5-0/
+A diferència dels anteriors, el Bluetooth 3.0 fa servir comunicació client-servidor amb BR/EDR security.
 
-Bluetooth 3.0. Sin sucesiones. Se incorporó la características HS -High Speed-, lo que lo hace apto para transferencia de paquetes que contienen más datos de los que se requieren tales como archivos de video y musicales, además de que se hace uso de este atributo cuando se requiere. Además su tasa de transferencia es de 24 Mbps.
+A partir del Bluetooth 2.1 s'utilitza el Secure Simple Pairing (SSP) amb Legacy Authentication com a model d'autenticació. Es tracta d'un mecanisme on un dels dispositius és qui sol·licita la comunicació i l'altre és qui rep la sol·licitud i qui la verifica. Els dispositius comparteixen una clau secreta. Qui verifica la comunicació s'encarrega de comprovar que la clau que utilitza el sol·licitant és la mateixa que té ell.
+
+Secure Simple Pairing utilitza algoritmes segurs per fer el pairing i assegurar la integritat de la comunicació, amb això es va millorar la seguretat del BR/EDR legacy. La diferència amb BR/EDR security, és que aquests de les versions anteriors no feien servir algoritmes segurs i aprovats per l'entitat FIPS.
 
 ## Llista eines que es poden fer servir per hackejar sistemes bluetooth
 
-https://en.kali.tools/all/?category=bluetooth (29 tools)
-https://www.tutorialspoint.com/wireless_security/wireless_security_bluetooth_hacking_tools.htm
+A la pàgina d'eines de Kali podem trobar un llistat de les que incorpora el sistema operatiu, un total de 29:
 
-kali:
+https://en.kali.tools/all/?category=bluetooth
 
-hciconfig
+- bleah:	A BLE scanner for "smart" devices hacking.
+- blue-hydra:	A Bluetooth device discovery service built on top of the bluez library.
+- bluebugger:	An implementation of the bluebug technique which was discovered by Martin Herfurt.
+- bluediving:	A Bluetooth penetration testing suite.
+- bluefog:	A tool that can generate an essentially unlimited number of phantom Bluetooth devices.
+- bluelog:	A Bluetooth scanner and sniffer written to do a single task, log devices that are in discoverable mode.
+- bluepot:	A Bluetooth Honeypot written in Java, it runs on Linux
+- blueprint:	A perl tool to identify Bluetooth devices.
+- blueranger:	A simple Bash script which uses Link Quality to locate Bluetooth device radios.
+- bluescan:	A Bluetooth Device Scanner.
+- bluesnarfer:	A bluetooth attacking tool
+- bluphish:	Bluetooth device and service discovery tool that can be used for security assessment and penetration testing.
+- braces:	A Bluetooth Tracking Utility.
+- bss:	Bluetooth stack smasher / fuzzer
+- bt_audit:	Bluetooth audit
+- btcrack:	The world's first Bluetooth Pass phrase (PIN) bruteforce tool. Bruteforces the Passkey and the Link key from captured Pairing exchanges.
+- btlejack:	Bluetooth Low Energy Swiss-army knife.
+- btproxy-mitm:	Man in the Middle analysis tool for Bluetooth.
+- btscanner:	Bluetooth device scanner.
+- carwhisperer:	Intends to sensibilise manufacturers of carkits and other Bluetooth appliances without display and keyboard for the possible security threat evolving from the use of standard passkeys.
+- crackle:	Crack and decrypt BLE encryption
+- fl0p:	A passive L7 flow fingerprinter that examines TCP/UDP/ICMP packet sequences, can peek into cryptographic tunnels, can tell human beings and robots apart, and performs a couple of other infosec-related tricks.
+- ghettotooth:	Ghettodriving for bluetooth
+- hidattack:	HID Attack (attacking HID host implementations)
+- obexstress:	Script for testing remote OBEX service for some potential vulnerabilities.
+- redfang:	Finds non-discoverable Bluetooth devices by brute-forcing the last six bytes of the devices' Bluetooth addresses and calling read_remote_name().
+- spooftooph:	Designed to automate spoofing or cloning Bluetooth device Name, Class, and Address. Cloning this information effectively allows Bluetooth device to hide in plain sight
+- tbear	Transient Bluetooth Environment Auditor includes an ncurses-based Bluetooth scanner (a bit similar to kismet), a Bluetooth DoS tool, and a Bluetooth hidden device locator.
+- ubertooth:	A 2.4 GHz wireless development board suitable for Bluetooth experimentation. Open source hardware and software. Tools only.
 
-hcitool
+Altres exemples que podem fer servir amb Kali però que no apareixen en el llistat:
 
-sdptool
-
-l2ping
+- hciconfig i hcitool: S'utilitza per configurar dispositius Bluetooth.
+- sdptool: Proporciona la interfície per realitzar consultes SDP en dispositius Bluetooth.
+- l2ping: Enviar una petició echo L2CAP a l'adreça MAC Bluetooth.
 
 ## Què és NFC? Quin és el seu ús més freqüent?
 
-https://www.xataka.com/basics/nfc-android-que-como-activarlo-se-puede-usar
-https://es.wikipedia.org/wiki/Comunicación_de_campo_cercano
+NFC (Near Field Communication) és una tecnologia sense fils d'alta freqüència que permet la comunicació de curt rang entre dispositius. Quan dos dispositius amb tecnologia NFC s'apropen, permeten la comunicació entre ells. Es basa en la creació d'un camp electromagnètic per l'intercanvi de dades.
 
 En el meu cas personal, únicament he fet servir NFC per fer ús del meu DNI electrònic. Es pot fer servir un mòbil amb funcionalitat NFC per aproximar-lo al DNI i poder signar un certificat digital amb la nostra clau única, si tenim el mòbil connectat amb USB a un PC.
 
@@ -73,8 +90,7 @@ Per tant, un dels seus usos més freqüents és la identificació. Habitualment 
 
 ## Què és QR? Quin és el seu ús més freqüent?
 
-https://es.wikipedia.org/wiki/Código_QR
-https://www.kaspersky.es/resource-center/definitions/what-is-a-qr-code-how-to-scan
+QR és un sistema que permet emmagatzemar informació en una matriu quadrada de punts. És a dir, dins una imatge que és un quadre de punts únic, trobem la informació contenida. Aquesta imatge pot ser llegida mitjançant una càmera i un lector. En resum, és un codi de barres de dues dimensions.
 
 El cas comentat amb el DNI electrònic també es pot fer amb QR, substituint la connexió USB entre mòbil i PC per un codi QR que es genera al PC des d'una aplicació i que podem llegir amb el mòbil, que està connectat per NFC al DNI.
 
@@ -118,4 +134,4 @@ const generateQR = async (filename = "qr", content = " ") => {
 generateQR("qr", "https://toni-pm.herokuapp.com");
 ```
 
-!["Codi QR generat"](qr.svg "Codi QR generat")
+!["Codi QR generat"](qr.png "Codi QR generat")
